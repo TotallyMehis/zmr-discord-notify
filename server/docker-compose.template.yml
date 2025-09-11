@@ -1,11 +1,22 @@
-version: "3"
 services:
   zmrdiscordnotify:
     build: ./
     volumes:
-      - "./.config.ini:/app/.config.ini"
-      - "./.tokens.txt:/app/.tokens.txt"
-      - "/INSERT_PATH_HERE/fullchain.pem:/app/fullchain.pem"
-      - "/INSERT_PATH_HERE/privkey.pem:/app/privkey.pem"
+      - type: bind
+        source: ./.config.ini
+        target: /app/.config.ini
+        read_only: true
+      - type: bind
+        source: ./.tokens.txt
+        target: /app/.tokens.txt
+        read_only: true
+      - type: bind
+        source: /INSERT_PATH_HERE/fullchain.pem
+        target: /app/fullchain.pem
+        read_only: true
+      - type: bind
+        source: /INSERT_PATH_HERE/privkey.pem
+        target: /app/privkey.pem
+        read_only: true
     ports:
       - "3000:3000"

@@ -2,4 +2,5 @@ server/.config.ini
 server/.tokens.txt
 server/*.db
 server/docker-compose.yml
+__pycache__/
 *.smx
