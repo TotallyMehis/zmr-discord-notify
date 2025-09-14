@@ -1,8 +1,8 @@
-FROM python:3.11
+FROM python:3.13
 
-COPY requirements.txt zmrdiscordnotify.py /app/
+COPY requirements.txt client.py webapp.py run.py /app/
 WORKDIR /app
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD python ./zmrdiscordnotify.py
+CMD python ./run.py
